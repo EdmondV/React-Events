@@ -1,9 +1,9 @@
  import { createReducer, createActions } from 'reduxsauce'
 
  const { Types, Creators } = createActions({
-  updateState: ['data'],
-  addToFavorites: ['data']
-})
+    updateState: ['data'],
+    addToFavorites: ['data']
+  })
 
 export const RequestsTypes = Types
 export default Creators
@@ -100,6 +100,7 @@ export const addToFavorites = (state, { data }) => {
       }
       return content
     })
+    console.log(newData2);
     localStorage.setItem('/events', JSON.stringify(newData2))
   	return { ...state, events: newData2 }
 }

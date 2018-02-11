@@ -35,7 +35,7 @@ class Main extends Component {
       sortedEvents,
       selectedFilter,
       selectedSorting } = this.state
-    let eventsList = sortedEvents || events
+    let eventsList = sortedEvents || events.slice()
     if (selectedSorting) eventsList.sort(sortPrice(selectedSorting))
     if (selectedFilter) eventsList = eventsList.filter(event => event.type === selectedFilter)
     return (
@@ -52,6 +52,10 @@ class Main extends Component {
             addSort={({ data }) => {
               this.setState({ selectedSorting: data })
               localStorage.setItem(`/sort-${location}`, data)
+            }}
+            removeSort={() => {
+              this.setState({ selectedSorting: null })
+              localStorage.removeItem(`/sort-${location}`)
             }}
             searchInfo={
               ({ data }) => this.setState({

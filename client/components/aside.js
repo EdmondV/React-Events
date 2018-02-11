@@ -2,7 +2,14 @@ import React from 'react'
 import Button from '../common/button'
 import Input from '../common/input'
 
-const Aside = ({ addFilter, addSort, searchInfo, selectedSorting, selectedFilter }) => {
+const Aside = ({
+  addFilter,
+  addSort,
+  searchInfo,
+  selectedSorting,
+  selectedFilter,
+  removeSort
+}) => {
   return (
     <div className='aside'>
       <div className='aside_backgound'>
@@ -31,6 +38,10 @@ const Aside = ({ addFilter, addSort, searchInfo, selectedSorting, selectedFilter
                 className={selectedSorting === 'desc' ? 'fav' : ''}
                 onClick={() => addSort({ data: 'desc' })}
               >По убыванию</Button>
+              <Button
+                className={!selectedSorting ? 'fav' : ''}
+                onClick={() => removeSort()}
+              >Без сортировки</Button>
           </div>
           <div>
             <span>Поиск</span>
