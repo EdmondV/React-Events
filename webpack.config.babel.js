@@ -8,7 +8,6 @@ module.exports = {
     path: __dirname + '/client',
     filename: 'bundle.js',
   },
-  watch: true,
   devtool: NODE_ENV == 'development' ? "cheap-inline-module-source-map" : 'source-map',
   module: {
     loaders: [

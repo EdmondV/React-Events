@@ -4,8 +4,8 @@
   "description": "events",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p",
-    "watch": "webpack-dev-server --hot --open"
+    "build": "set NODE_ENV=production&& webpack --progress",
+    "watch": "set NODE_ENV=development&& webpack-dev-server --hot --open"
   },
   "repository": {
     "type": "git",
